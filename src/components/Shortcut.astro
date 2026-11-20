@@ -1,0 +1,40 @@
+---
+import Feature from './Feature.astro';
+import { getCopy, type Lang } from '../i18n';
+import { asset } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const s = c.shortcuts;
+---
+
+<Feature
+  id="shortcuts"
+  label={s.label}
+  title={s.title}
+  body={s.body}
+  bullets={s.bullets}
+  reverse
+  tone="cream"
+>
+  <div class="shortcut-stage">
+    <figure class="shot-frame">
+      <div class="shot-bar" aria-hidden="true">
+        <span class="traffic"><i></i><i></i><i></i></span>
+        <span class="shot-bar-title">Hush — {lang === 'ru' ? 'Клавиша' : 'Shortcut'}</span>
+        <span class="shot-bar-tag">{lang === 'ru' ? 'любая клавиша' : 'any key'}</span>
+      </div>
+      <img
+        src={asset(`/img/shots/shortcut${lang === 'ru' ? '-ru' : ''}.webp`)}
+        alt={s.imageAlt}
+        width="1184"
+        height="440"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+  </div>
+</Feature>

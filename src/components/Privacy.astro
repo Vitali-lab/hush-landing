@@ -1,0 +1,39 @@
+---
+import Feature from './Feature.astro';
+import { getCopy, type Lang } from '../i18n';
+import { asset } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const s = c.privacy;
+---
+
+<Feature
+  id="privacy"
+  label={s.label}
+  title={s.title}
+  body={s.body}
+  bullets={s.bullets}
+  note={s.note}
+  reverse
+  tone="cream"
+>
+  <figure class="shot-frame">
+    <div class="shot-bar" aria-hidden="true">
+      <span class="traffic"><i></i><i></i><i></i></span>
+      <span class="shot-bar-title">Hush — {lang === 'ru' ? 'Модель' : 'Model'}</span>
+      <span class="shot-bar-tag">{lang === 'ru' ? 'на этом Mac' : 'on this Mac'}</span>
+    </div>
+    <img
+      src={asset(`/img/shots/model${lang === 'ru' ? '-ru' : ''}.webp`)}
+      alt={s.imageAlt}
+      width="1760"
+      height="1440"
+      loading="lazy"
+      decoding="async"
+    />
+  </figure>
+</Feature>

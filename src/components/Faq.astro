@@ -1,0 +1,46 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const f = c.faq;
+---
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq-head">
+      <span class="feature-label">{f.label}</span>
+      <h2>{f.title}</h2>
+    </div>
+
+    <div class="faq-list" data-faq>
+      {f.items.map((item, i) => (
+        <div class:list={['faq-item', { 'is-open': i === 0 }]}>
+          <h3>
+            <button
+              type="button"
+              aria-expanded={i === 0 ? 'true' : 'false'}
+              aria-controls={`faq-panel-${i}`}
+              id={`faq-button-${i}`}
+              data-faq-button
+            >
+              <span>{item.q}</span>
+              <span class="faq-icon" aria-hidden="true"><Icon name="plus" size={16} /></span>
+            </button>
+          </h3>
+          <div class="faq-answer" id={`faq-panel-${i}`} role="region" aria-labelledby={`faq-button-${i}`}>
+            <div><p>{item.a}</p></div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="faq-foot">
+      <a class="link-arrow" href={c.common.issues}>{f.ask}<Icon name="arrow-up-right" size={15} /></a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,70 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, type Lang } from '../i18n';
+import { asset } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const s = c.install;
+const command = 'xattr -dr com.apple.quarantine /Applications/Hush.app';
+---
+
+<section class="install" id="install">
+  <div class="wrap install-grid">
+    <div class="install-copy">
+      <span class="feature-label">{s.label}</span>
+      <h2>{s.title}</h2>
+      <p class="feature-body">{s.body}</p>
+
+      <ol class="install-steps">
+        {s.steps.map((step, i) => (
+          <li>
+            <span class="install-num">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="install-note">
+        <h3><Icon name="shield" size={16} />{s.noteTitle}</h3>
+        <p>{s.note}</p>
+        <div class="code-row">
+          <code>{command}</code>
+          <button class="copy-btn" type="button" data-copy={command} data-copied={s.copied} aria-label={s.copy}>
+            <Icon name="copy" size={15} />
+            <span data-copy-label>{s.copy}</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="install-action">
+        <a class="btn btn-primary" href={c.common.downloadUrl}>
+          <Icon name="apple" size={17} />
+          {s.download}
+        </a>
+        <span class="install-req">{s.requirements}</span>
+      </div>
+    </div>
+
+    <figure class="install-shot">
+      <div class="shot-bar" aria-hidden="true">
+        <span class="traffic"><i></i><i></i><i></i></span>
+        <span class="shot-bar-title">Hush — {lang === 'ru' ? 'Настройки' : 'Settings'}</span>
+      </div>
+      <img
+        src={asset(`/img/shots/setup-${lang}.webp`)}
+        alt={s.imageAlt}
+        width="1760"
+        height="1840"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import { getCopy, type Lang } from '../i18n';
+import { asset } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+---
+
+<section class="app-strip" aria-label={c.apps.label}>
+  <div class="wrap app-strip-head">
+    <span class="app-strip-label">{c.apps.label}</span>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <ul class="app-list">
+        {c.apps.items.map((app) => (
+          <li>
+            <img src={asset(`/img/apps/${app.icon}`)} alt="" width="32" height="32" loading="eager" />
+            <span>{app.name}</span>
+          </li>
+        ))}
+      </ul>
+      <ul class="app-list" aria-hidden="true">
+        {c.apps.items.map((app) => (
+          <li>
+            <img src={asset(`/img/apps/${app.icon}`)} alt="" width="32" height="32" loading="eager" />
+            <span>{app.name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

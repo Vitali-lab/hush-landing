@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const s = c.cta;
+---
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-panel">
+      <div class="cta-grid" aria-hidden="true"></div>
+      <h2>{s.title}</h2>
+      <p>{s.body}</p>
+      <div class="cta-actions">
+        <a class="btn btn-white btn-lg" href={c.common.downloadUrl}>
+          <Icon name="apple" size={19} />
+          {s.download}
+        </a>
+      </div>
+      <div class="cta-meta">
+        <span class="windows-chip is-dark"><Icon name="windows" size={13} />{s.windows}</span>
+        <span>{s.meta}</span>
+      </div>
+    </div>
+  </div>
+</section>

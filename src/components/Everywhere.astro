@@ -1,0 +1,32 @@
+---
+import Feature from './Feature.astro';
+import { getCopy, type Lang } from '../i18n';
+import { asset } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const s = c.everywhere;
+---
+
+<Feature
+  id="features"
+  label={s.label}
+  title={s.title}
+  body={s.body}
+  bullets={s.bullets}
+>
+  <div class="app-orbit" role="img" aria-label={s.visualAlt}>
+    <div class="app-orbit-grid" aria-hidden="true"></div>
+    <div class="app-orbit-list">
+      {c.apps.items.slice(0, 8).map((app) => (
+        <div class="app-tile">
+          <img src={asset(`/img/apps/${app.icon}`)} alt="" width="56" height="56" loading="eager" />
+          <span>{app.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</Feature>

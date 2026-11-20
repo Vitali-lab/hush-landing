@@ -1,0 +1,219 @@
+export const en = {
+  lang: 'en',
+  htmlLang: 'en',
+  meta: {
+    title: 'Hush — On-device dictation for macOS',
+    description:
+      'Tired of typing? Hold a shortcut, speak, and Hush types it at the cursor in any Mac app. On-device, offline, no account.',
+    ogAlt: 'Hush — tired of typing? Just speak.',
+  },
+  nav: {
+    features: 'Features',
+    privacy: 'Privacy',
+    install: 'Install',
+    faq: 'FAQ',
+    download: 'Download',
+    menu: 'Open menu',
+    close: 'Close menu',
+    windows: 'Windows — in development',
+  },
+  hero: {
+    eyebrow: 'On-device dictation for macOS',
+    title1: 'Tired of typing?',
+    title2: 'Just speak.',
+    lede:
+      'Hold a shortcut, say what you mean, let go. Hush types it at the cursor in any app — on your Mac, not in the cloud.',
+    download: 'Download for macOS',
+    windows: 'Windows — in development',
+    free: 'Free and open source',
+    meta: ['macOS 14+', 'Apple Silicon', '632 MB model, once'],
+    shotAlt: 'Hush menu-bar popover and the floating dictation pill',
+    demo: {
+      window: 'Quick note',
+      to: 'To',
+      team: 'Design team',
+      subject: 'Subject',
+      subjectValue: 'Launch notes',
+      greeting: 'Hey team,',
+      typed: "Let's ship the new landing page tonight.",
+      placeholder: 'Hold Fn and speak',
+      hold: 'Hold to try',
+      hint: 'Hold Fn, speak, release',
+      send: 'Send',
+      pasted: 'Pasted at the cursor',
+      listening: 'Listening',
+      thinking: 'Transcribing',
+      done: 'Done',
+      aria: 'Hold the Fn key to preview dictation',
+    },
+  },
+  apps: {
+    label: 'Works in',
+    items: [
+      { name: 'Slack', icon: 'slack.png' },
+      { name: 'Mail', icon: 'mail.png' },
+      { name: 'Cursor', icon: 'cursor.png' },
+      { name: 'Terminal', icon: 'terminal.png' },
+      { name: 'opencode', icon: 'opencode.png' },
+      { name: 'Codex', icon: 'codex.png' },
+      { name: 'Claude', icon: 'claude.png' },
+      { name: 'VS Code', icon: 'vscode.png' },
+      { name: 'Notion', icon: 'notion.png' },
+      { name: 'Figma', icon: 'figma.png' },
+      { name: 'Chrome', icon: 'chrome.png' },
+      { name: 'Messages', icon: 'messages.png' },
+      { name: 'GitHub', icon: 'github.png' },
+      { name: 'Telegram', icon: 'telegram.png' },
+      { name: 'Discord', icon: 'discord.png' },
+    ],
+  },  everywhere: {
+    label: 'Everywhere',
+    title: 'Dictate anywhere you can type.',
+    body:
+      'Slack, Mail, Cursor, a terminal, a browser. Hush pastes at the focused cursor, so every text field becomes a microphone.',
+    bullets: [
+      { icon: 'keyboard', title: 'Any text field', body: 'If you can type there, you can dictate there.' },
+      { icon: 'cursor', title: 'At the cursor', body: 'The text lands exactly where you were already writing.' },
+      { icon: 'layout', title: 'No window switching', body: 'Hush lives in the menu bar, not in your way.' },
+    ],
+    visualAlt: 'The apps Hush works in, with the floating dictation pill',
+  },
+  privacy: {
+    label: 'Privacy',
+    title: 'Your voice never leaves this Mac.',
+    body:
+      'Whisper large-v3 Turbo runs on the Apple Neural Engine. Audio lives in memory, becomes text locally, and is discarded.',
+    bullets: [
+      { icon: 'shield', title: 'On-device', body: 'Recognition runs on the Neural Engine.' },
+      { icon: 'cloud-off', title: 'Nothing uploaded', body: 'No account, no cloud, no telemetry.' },
+      { icon: 'lock', title: 'One download', body: 'The speech model is the only network request. Ever.' },
+    ],
+    note: '632 MB, downloaded once. After that, Hush works with Wi-Fi off.',
+    imageAlt: 'Hush model settings showing Whisper running on the Neural Engine',
+  },
+  speed: {
+    label: 'Speed',
+    title: 'Fast, then gone.',
+    body:
+      'The model loads in under two seconds, uses about one browser tab of memory, and unloads itself when you stop.',
+    bullets: [
+      { icon: 'bolt', title: '1.8 s', body: 'Cold model load.' },
+      { icon: 'cpu', title: '130–200 MB', body: 'RAM while dictating.' },
+      { icon: 'timer', title: '8 min', body: 'Then the model unloads.' },
+    ],
+    imageAlt: 'Hush menu popover with dictation stats',
+  },
+  shortcuts: {
+    label: 'Control',
+    title: 'Your shortcut. Your rules.',
+    body:
+      'Hold Fn, hold Right Option, use a combination, or record any key. Choose hold-to-talk or hands-free.',
+    bullets: [
+      { icon: 'key', title: 'Any key', body: 'Fn, a modifier, a combo, or a key you record.' },
+      { icon: 'toggle', title: 'Hold or toggle', body: 'Press and hold, or tap to start and stop.' },
+      { icon: 'sound', title: 'Quiet feedback', body: 'Four start sounds and one soft stop tick.' },
+    ],
+    imageAlt: 'Hush shortcut settings with presets and hold mode',
+  },
+  themes: {
+    label: 'Themes',
+    title: 'Five themes. One quiet app.',
+    body:
+      'System follows macOS. Daylight and Sand stay light. Graphite and Midnight go dark. The pill and accents follow.',
+    hint: 'Click a theme to preview it.',
+    imageAlt: 'Hush settings preview in the selected theme',
+    list: [
+      { id: 'system', name: 'System' },
+      { id: 'daylight', name: 'Daylight' },
+      { id: 'sand', name: 'Sand' },
+      { id: 'graphite', name: 'Graphite' },
+      { id: 'midnight', name: 'Midnight' },
+    ],
+  },
+  install: {
+    label: 'Install',
+    title: 'Ready in four steps.',
+    body: 'The app is small. The speech model is the only big download.',
+    steps: [
+      { title: 'Download the DMG', body: 'Open it and drag Hush into Applications.' },
+      { title: 'Allow the microphone', body: 'Hush needs to hear you. Audio is processed in memory.' },
+      { title: 'Allow Accessibility', body: 'For the global shortcut and pasting into other apps.' },
+      { title: 'Download the model once', body: '632 MB, then transcription runs offline.' },
+    ],
+    noteTitle: 'First launch',
+    note:
+      'Hush is signed but not notarized yet. If macOS blocks it, right-click Hush → Open, or run this in Terminal:',
+    copy: 'Copy command',
+    copied: 'Copied',
+    requirements: 'macOS 14 or newer · Apple Silicon · Intel builds are not provided.',
+    download: 'Download Hush',
+    imageAlt: 'Hush setup screen with microphone, accessibility and speech model steps',
+  },
+  faq: {
+    label: 'FAQ',
+    title: 'Questions, answered.',
+    ask: 'Ask on GitHub',
+    items: [
+      {
+        q: 'Does Hush work offline?',
+        a: 'Yes. After the one-time model download, everything runs on the Mac. You can turn Wi-Fi off and keep dictating.',
+      },
+      {
+        q: 'Where does my audio go?',
+        a: 'Nowhere. It stays in memory, becomes text locally and is discarded. Hush has no networking code except the one-time model download.',
+      },
+      {
+        q: 'Which Macs are supported?',
+        a: 'macOS 14 or newer on Apple Silicon. Intel builds are not provided.',
+      },
+      {
+        q: 'Is there a Windows version?',
+        a: 'Not yet. A Windows build is in development — follow the GitHub repository for the first release.',
+      },
+      {
+        q: 'Why does macOS ask for Accessibility?',
+        a: 'Hush uses it to hear the global shortcut and paste text into the app you are using. It does not read your screen.',
+      },
+      {
+        q: 'Is Hush free?',
+        a: 'Yes. The app and its source are on GitHub under the MIT license. No account, no subscription, no telemetry.',
+      },
+    ],
+  },
+  cta: {
+    title: 'Start talking. Stop typing.',
+    body: 'Download Hush, allow two permissions, and dictate your next sentence.',
+    download: 'Download for macOS',
+    windows: 'Windows — in development',
+    meta: 'Free · Open source · macOS 14+',
+  },
+  footer: {
+    tagline: 'On-device dictation for macOS.',
+    product: 'Product',
+    linksProduct: [
+      ['Download', 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg'],
+      ['Releases', 'https://github.com/Vitali-lab/hush/releases'],
+      ['Changelog', 'https://github.com/Vitali-lab/hush/blob/main/CHANGELOG.md'],
+      ['Source', 'https://github.com/Vitali-lab/hush'],
+    ],
+    help: 'Help',
+    linksHelp: [
+      ['Install', '#install'],
+      ['Questions', '#faq'],
+      ['Privacy', '#privacy'],
+      ['Issues', 'https://github.com/Vitali-lab/hush/issues'],
+    ],
+    language: 'Language',
+    rights: '© 2026 Hush · MIT licensed',
+    privacy: 'No cookies. No analytics.',
+    back: 'Back to top',
+  },
+  common: {
+    downloadUrl: 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg',
+    repo: 'https://github.com/Vitali-lab/hush',
+    releases: 'https://github.com/Vitali-lab/hush/releases',
+    issues: 'https://github.com/Vitali-lab/hush/issues',
+  },
+};
+
+export type Copy = typeof en;

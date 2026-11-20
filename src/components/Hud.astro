@@ -1,0 +1,25 @@
+---
+interface Props {
+  state?: 'listening' | 'thinking' | 'done';
+  label?: string;
+  class?: string;
+}
+const { state = 'listening', label = '', class: className = '' } = Astro.props;
+const bars = Array.from({ length: 23 }, (_, i) => i);
+---
+
+<span
+  class:list={['hud-pill', className]}
+  data-state={state}
+  role={label ? 'img' : undefined}
+  aria-label={label || undefined}
+  aria-hidden={label ? undefined : 'true'}
+>
+  <span class="hud-wave" aria-hidden="true">
+    {bars.map((i) => <i style={`--i:${i}`}></i>)}
+  </span>
+  <span class="hud-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+  <span class="hud-check" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>
+  </span>
+</span>

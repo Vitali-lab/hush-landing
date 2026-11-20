@@ -1,0 +1,62 @@
+---
+import { getCopy, type Lang } from '../i18n';
+import { asset } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const s = c.themes;
+---
+
+<section class="feature feature-white themes-section" id="themes">
+  <div class="wrap feature-grid">
+    <div class="feature-copy">
+      <span class="feature-label">{s.label}</span>
+      <h2>{s.title}</h2>
+      <p class="feature-body">{s.body}</p>
+
+      <div class="theme-picker" role="radiogroup" aria-label={s.label} data-theme-picker>
+        {s.list.map((theme, i) => (
+          <button
+            class:list={['theme-pick', { 'is-active': i === 0 }]}
+            type="button"
+            role="radio"
+            aria-checked={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? '0' : '-1'}
+            data-theme={theme.id}
+          >
+            <span class="theme-pick-swatch" data-swatch={theme.id} aria-hidden="true"></span>
+            <span>{theme.name}</span>
+          </button>
+        ))}
+      </div>
+
+      <p class="feature-note">{s.hint}</p>
+    </div>
+
+    <div class="feature-visual">
+      <figure class="theme-shot-stage" data-theme-shot>
+        <div class="shot-bar" aria-hidden="true">
+          <span class="traffic"><i></i><i></i><i></i></span>
+          <span class="shot-bar-title">Hush — {lang === 'ru' ? 'Тема' : 'Theme'}</span>
+          <span class="shot-bar-tag" data-theme-name>{s.list[0].name}</span>
+        </div>
+        <div class="theme-shots">
+          {s.list.map((theme, i) => (
+            <img
+              class:list={['theme-shot', { 'is-active': i === 0 }]}
+              src={asset(`/img/shots/theme-${theme.id}-${lang}.webp`)}
+              alt={s.imageAlt}
+              width="1184"
+              height="960"
+              loading="eager"
+              data-theme-image={theme.id}
+            />
+          ))}
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>

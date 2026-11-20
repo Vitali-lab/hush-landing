@@ -1,0 +1,54 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, type Lang } from '../i18n';
+import { asset, home } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const f = c.footer;
+const isExternal = (href: string) => href.startsWith('http');
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href={home(lang)} aria-label="Hush">
+          <img src={asset('/img/hush-icon-256.webp')} alt="" width="30" height="30" />
+          <span>Hush</span>
+        </a>
+        <p>{f.tagline}</p>
+        <span class="windows-chip"><span class="windows-dot" aria-hidden="true"></span>{c.nav.windows}</span>
+      </div>
+
+      <div class="footer-col">
+        <h3>{f.product}</h3>
+        {f.linksProduct.map(([label, href]) => (
+          <a href={href} target={isExternal(href) ? '_blank' : undefined} rel={isExternal(href) ? 'noopener' : undefined}>{label}</a>
+        ))}
+      </div>
+      <div class="footer-col">
+        <h3>{f.help}</h3>
+        {f.linksHelp.map(([label, href]) => (
+          <a href={href} target={isExternal(href) ? '_blank' : undefined} rel={isExternal(href) ? 'noopener' : undefined}>{label}</a>
+        ))}
+      </div>
+      <div class="footer-col">
+        <h3>{f.language}</h3>
+        <a class:list={{ active: lang === 'en' }} href={home('en')}>English</a>
+        <a class:list={{ active: lang === 'ru' }} href={home('ru')}>Русский</a>
+        <a href={c.common.repo} target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>{f.rights}</span>
+      <span>{f.privacy}</span>
+      <span class="footer-spacer"></span>
+      <a href="#top">{f.back}<Icon name="arrow-up-right" size={12} /></a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,219 @@
+import type { Copy } from './en';
+
+export const ru: Copy = {
+  lang: 'ru',
+  htmlLang: 'ru',
+  meta: {
+    title: 'Hush — диктовка на устройстве для macOS',
+    description:
+      'Устал печатать? Зажми хоткей, скажи — Hush впечатает текст у курсора в любом приложении на Mac. Локально, офлайн, без аккаунта.',
+    ogAlt: 'Hush — устал печатать? Просто скажи.',
+  },
+  nav: {
+    features: 'Возможности',
+    privacy: 'Приватность',
+    install: 'Установка',
+    faq: 'Вопросы',
+    download: 'Скачать',
+    menu: 'Открыть меню',
+    close: 'Закрыть меню',
+    windows: 'Windows — в разработке',
+  },
+  hero: {
+    eyebrow: 'Диктовка на устройстве для macOS',
+    title1: 'Устал печатать?',
+    title2: 'Просто скажи.',
+    lede:
+      'Зажми хоткей, скажи что нужно, отпусти — Hush впечатает текст у курсора в любом приложении. На твоём Mac, не в облаке.',
+    download: 'Скачать для macOS',
+    windows: 'Windows — в разработке',
+    free: 'Бесплатно и с открытым кодом',
+    meta: ['macOS 14+', 'Apple Silicon', 'модель 632 МБ, один раз'],
+    shotAlt: 'Поповер Hush в меню-баре и плавающая пилюля диктовки',
+    demo: {
+      window: 'Быстрая заметка',
+      to: 'Кому',
+      team: 'Команда дизайна',
+      subject: 'Тема',
+      subjectValue: 'Заметки к релизу',
+      greeting: 'Привет, команда!',
+      typed: 'Давай выпустим лендинг сегодня вечером.',
+      placeholder: 'Зажми Fn и говори',
+      hold: 'Зажми, чтобы попробовать',
+      hint: 'Зажми Fn, говори, отпусти',
+      send: 'Отправить',
+      pasted: 'Вставлено у курсора',
+      listening: 'Слушаю',
+      thinking: 'Распознаю',
+      done: 'Готово',
+      aria: 'Зажми клавишу Fn, чтобы посмотреть, как работает диктовка',
+    },
+  },
+  apps: {
+    label: 'Работает в',
+    items: [
+      { name: 'Slack', icon: 'slack.png' },
+      { name: 'Почте', icon: 'mail.png' },
+      { name: 'Cursor', icon: 'cursor.png' },
+      { name: 'Терминале', icon: 'terminal.png' },
+      { name: 'opencode', icon: 'opencode.png' },
+      { name: 'Codex', icon: 'codex.png' },
+      { name: 'Claude', icon: 'claude.png' },
+      { name: 'VS Code', icon: 'vscode.png' },
+      { name: 'Notion', icon: 'notion.png' },
+      { name: 'Figma', icon: 'figma.png' },
+      { name: 'Chrome', icon: 'chrome.png' },
+      { name: 'Сообщениях', icon: 'messages.png' },
+      { name: 'GitHub', icon: 'github.png' },
+      { name: 'Telegram', icon: 'telegram.png' },
+      { name: 'Discord', icon: 'discord.png' },
+    ],
+  },  everywhere: {
+    label: 'Везде',
+    title: 'Диктуй везде, где можно печатать.',
+    body:
+      'Slack, почта, Cursor, терминал, браузер. Hush вставляет текст в поле с курсором — микрофоном становится любое поле ввода.',
+    bullets: [
+      { icon: 'keyboard', title: 'Любое поле', body: 'Если там можно печатать, туда можно и говорить.' },
+      { icon: 'cursor', title: 'У курсора', body: 'Текст появляется там, где ты уже писал.' },
+      { icon: 'layout', title: 'Без переключения окон', body: 'Hush живёт в меню-баре и не мешает.' },
+    ],
+    visualAlt: 'Приложения, в которых работает Hush, и плавающая пилюля диктовки',
+  },
+  privacy: {
+    label: 'Приватность',
+    title: 'Твой голос не покидает этот Mac.',
+    body:
+      'Whisper large-v3 Turbo работает на Apple Neural Engine. Аудио живёт в памяти, распознаётся локально и выбрасывается.',
+    bullets: [
+      { icon: 'shield', title: 'На устройстве', body: 'Распознавание идёт на Neural Engine.' },
+      { icon: 'cloud-off', title: 'Никуда не уходит', body: 'Без аккаунта, облака и телеметрии.' },
+      { icon: 'lock', title: 'Одна загрузка', body: 'Речевая модель — единственный сетевой запрос.' },
+    ],
+    note: '632 МБ один раз. Дальше Hush работает с выключенным Wi-Fi.',
+    imageAlt: 'Настройки моделей Hush: Whisper работает на Neural Engine',
+  },
+  speed: {
+    label: 'Скорость',
+    title: 'Быстро — и снова тихо.',
+    body:
+      'Модель грузится меньше двух секунд, занимает примерно одну вкладку памяти и выгружается, когда ты замолкаешь.',
+    bullets: [
+      { icon: 'bolt', title: '1,8 с', body: 'Загрузка модели.' },
+      { icon: 'cpu', title: '130–200 МБ', body: 'Памяти при диктовке.' },
+      { icon: 'timer', title: '8 мин', body: 'И модель выгружается.' },
+    ],
+    imageAlt: 'Поповер Hush со статистикой диктовки',
+  },
+  shortcuts: {
+    label: 'Управление',
+    title: 'Свой хоткей. Свои правила.',
+    body:
+      'Удерживай Fn, правый Option, комбинацию — или запиши любую клавишу. Режим удержания или старт и стоп по нажатию.',
+    bullets: [
+      { icon: 'key', title: 'Любая клавиша', body: 'Fn, модификатор, комбинация или своя клавиша.' },
+      { icon: 'toggle', title: 'Удержание или старт', body: 'Держи, пока говоришь, или нажми один раз.' },
+      { icon: 'sound', title: 'Тихий отклик', body: 'Четыре звука старта и мягкий щелчок.' },
+    ],
+    imageAlt: 'Настройки хоткея Hush с пресетами и режимом удержания',
+  },
+  themes: {
+    label: 'Темы',
+    title: 'Пять тем. Одно тихое приложение.',
+    body:
+      'Системная следует за macOS. Светлая и Песочная остаются светлыми. Графит и Полночь уходят в темноту. Пилюля и акценты меняются вместе с ними.',
+    hint: 'Нажми на тему, чтобы посмотреть.',
+    imageAlt: 'Настройки Hush в выбранной теме',
+    list: [
+      { id: 'system', name: 'Системная' },
+      { id: 'daylight', name: 'Светлая' },
+      { id: 'sand', name: 'Песочная' },
+      { id: 'graphite', name: 'Графит' },
+      { id: 'midnight', name: 'Полночь' },
+    ],
+  },
+  install: {
+    label: 'Установка',
+    title: 'Готово за четыре шага.',
+    body: 'Приложение маленькое. Большая загрузка только одна — речевая модель.',
+    steps: [
+      { title: 'Скачай DMG', body: 'Открой и перетащи Hush в Applications.' },
+      { title: 'Разреши микрофон', body: 'Hush нужно тебя слышать. Аудио обрабатывается в памяти.' },
+      { title: 'Разреши Accessibility', body: 'Для глобального хоткея и вставки в другие приложения.' },
+      { title: 'Скачай модель один раз', body: '632 МБ, дальше распознавание работает офлайн.' },
+    ],
+    noteTitle: 'Первый запуск',
+    note:
+      'Hush подписан, но пока не нотаризован. Если macOS не пускает, нажми Hush → Открыть правой кнопкой мыши или выполни в Терминале:',
+    copy: 'Скопировать команду',
+    copied: 'Скопировано',
+    requirements: 'macOS 14 или новее · Apple Silicon · сборок для Intel нет.',
+    download: 'Скачать Hush',
+    imageAlt: 'Экран настройки Hush с шагами для микрофона, Accessibility и речевой модели',
+  },
+  faq: {
+    label: 'Вопросы',
+    title: 'Коротко о главном.',
+    ask: 'Спросить на GitHub',
+    items: [
+      {
+        q: 'Hush работает офлайн?',
+        a: 'Да. После одной загрузки модели всё идёт на Mac. Можно выключить Wi-Fi и продолжать диктовать.',
+      },
+      {
+        q: 'Куда уходит аудио?',
+        a: 'Никуда. Оно остаётся в памяти, распознаётся локально и выбрасывается. Сети в Hush нет, кроме загрузки модели.',
+      },
+      {
+        q: 'Какие Mac поддерживаются?',
+        a: 'macOS 14 или новее на Apple Silicon. Сборок для Intel нет.',
+      },
+      {
+        q: 'Будет ли версия для Windows?',
+        a: 'Пока нет, но мы над ней работаем. Первый билд появится в репозитории на GitHub.',
+      },
+      {
+        q: 'Зачем macOS просит Accessibility?',
+        a: 'Чтобы ловить глобальный хоткей и вставлять текст в активное приложение. Экран Hush не читает.',
+      },
+      {
+        q: 'Hush бесплатный?',
+        a: 'Да. Приложение и исходники лежат на GitHub под лицензией MIT. Без аккаунта, подписки и телеметрии.',
+      },
+    ],
+  },
+  cta: {
+    title: 'Хватит печатать. Начни говорить.',
+    body: 'Скачай Hush, разреши два доступа — и продиктуй следующее предложение.',
+    download: 'Скачать для macOS',
+    windows: 'Windows — в разработке',
+    meta: 'Бесплатно · Открытый код · macOS 14+',
+  },
+  footer: {
+    tagline: 'Диктовка на устройстве для macOS.',
+    product: 'Продукт',
+    linksProduct: [
+      ['Скачать', 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg'],
+      ['Релизы', 'https://github.com/Vitali-lab/hush/releases'],
+      ['Changelog', 'https://github.com/Vitali-lab/hush/blob/main/CHANGELOG.md'],
+      ['Исходники', 'https://github.com/Vitali-lab/hush'],
+    ],
+    help: 'Помощь',
+    linksHelp: [
+      ['Установка', '#install'],
+      ['Вопросы', '#faq'],
+      ['Приватность', '#privacy'],
+      ['Issues', 'https://github.com/Vitali-lab/hush/issues'],
+    ],
+    language: 'Язык',
+    rights: '© 2026 Hush · MIT',
+    privacy: 'Без cookie. Без аналитики.',
+    back: 'Наверх',
+  },
+  common: {
+    downloadUrl: 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg',
+    repo: 'https://github.com/Vitali-lab/hush',
+    releases: 'https://github.com/Vitali-lab/hush/releases',
+    issues: 'https://github.com/Vitali-lab/hush/issues',
+  },
+};

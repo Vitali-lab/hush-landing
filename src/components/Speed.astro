@@ -1,0 +1,35 @@
+---
+import Feature from './Feature.astro';
+import Icon from './Icon.astro';
+import { getCopy, type Lang } from '../i18n';
+import { asset } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const s = c.speed;
+---
+
+<Feature
+  id="speed"
+  label={s.label}
+  title={s.title}
+  body={s.body}
+  bullets={s.bullets}
+  tone="white"
+>
+  <div class="menu-stage">
+    <div class="menu-stage-bar" aria-hidden="true">
+      <span class="mb-left">
+        <Icon name="apple" size={11} />
+        <span class="mb-hush"><Icon name="waveform" size={11} />Hush</span>
+      </span>
+      <span class="mb-right"><Icon name="wifi" size={12} /><span class="mb-time">Mon 9:41</span></span>
+    </div>
+    <div class="menu-stage-body">
+      <img class="menu-image" src={asset(`/img/shots/menu-${lang}.webp`)} alt={s.imageAlt} width="648" height="432" loading="lazy" />
+    </div>
+  </div>
+</Feature>

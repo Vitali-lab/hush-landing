@@ -1,0 +1,80 @@
+---
+import Icon from './Icon.astro';
+import { getCopy, type Lang } from '../i18n';
+import { asset, home } from '../lib/url';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const links = [
+  { href: '#features', label: c.nav.features },
+  { href: '#privacy', label: c.nav.privacy },
+  { href: '#install', label: c.nav.install },
+  { href: '#faq', label: c.nav.faq },
+];
+---
+
+<header class="site-header" data-nav>
+  <div class="header-row">
+    <nav class="nav-inner" aria-label={lang === 'ru' ? 'Основная навигация' : 'Main navigation'}>
+      <a class="brand" href={home(lang)} aria-label="Hush">
+        <img src={asset('/img/hush-icon-256.webp')} alt="" width="30" height="30" />
+        <span>Hush</span>
+      </a>
+
+      <div class="nav-links">
+        {links.map((link) => <a href={link.href}>{link.label}</a>)}
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-switch" aria-label={lang === 'ru' ? 'Язык' : 'Language'}>
+          <a class:list={{ active: lang === 'en' }} href={home('en')} aria-label="English">EN</a>
+          <span aria-hidden="true">|</span>
+          <a class:list={{ active: lang === 'ru' }} href={home('ru')} aria-label="Русский">RU</a>
+        </div>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label={c.nav.menu}
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-menu-toggle
+        >
+          <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+        </button>
+      </div>
+    </nav>
+
+    <a class="btn btn-primary nav-download" href={c.common.downloadUrl}>
+      <Icon name="apple" size={16} />
+      <span>{c.nav.download}</span>
+    </a>
+  </div>
+
+  <div class="menu-panel" id="mobile-menu" hidden data-menu-panel data-open={c.nav.menu} data-close={c.nav.close}>
+    <div class="wrap menu-inner">
+      <div class="menu-links">
+        {links.map((link) => (
+          <a href={link.href} data-menu-link>{link.label}<Icon name="arrow-up-right" size={18} /></a>
+        ))}
+      </div>
+
+      <div class="menu-bottom">
+        <a class="btn btn-primary" href={c.common.downloadUrl}>
+          <Icon name="apple" size={17} />
+          {c.hero.download}
+        </a>
+        <div class="menu-meta">
+          <span class="windows-chip"><span class="windows-dot" aria-hidden="true"></span>{c.hero.windows}</span>
+          <div class="menu-lang">
+            <a class:list={{ active: lang === 'en' }} href={home('en')}>EN</a>
+            <span aria-hidden="true">/</span>
+            <a class:list={{ active: lang === 'ru' }} href={home('ru')}>RU</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

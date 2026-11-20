@@ -1,0 +1,99 @@
+---
+import Icon from './Icon.astro';
+import Hud from './Hud.astro';
+import { getCopy, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = getCopy(lang);
+const d = c.hero.demo;
+---
+
+<section class="hero" id="top">
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>{c.hero.eyebrow}</span>
+      <h1>
+        <span>{c.hero.title1}</span>
+        <span>{c.hero.title2}</span>
+      </h1>
+      <p class="hero-lede">{c.hero.lede}</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href={c.common.downloadUrl}>
+          <Icon name="apple" size={19} />
+          <span>{c.hero.download}</span>
+        </a>
+        <span class="windows-chip">
+          <Icon name="windows" size={13} />
+          {c.hero.windows}
+        </span>
+      </div>
+
+      <div class="hero-meta">
+        <span class="hero-meta-item"><Icon name="apple" size={12} />{c.hero.meta[0]}</span>
+        <span class="hero-meta-sep" aria-hidden="true"></span>
+        <span>{c.hero.meta[1]}</span>
+        <span class="hero-meta-sep" aria-hidden="true"></span>
+        <span>{c.hero.meta[2]}</span>
+        <span class="hero-meta-sep" aria-hidden="true"></span>
+        <span class="hero-free"><Icon name="check" size={12} strokeWidth={2.4} />{c.hero.free}</span>
+      </div>
+    </div>
+
+    <div
+      class="hero-demo has-text"
+      data-demo
+      data-typed={d.typed}
+      data-listen={d.listening}
+      data-think={d.thinking}
+      data-done={d.done}
+      data-pasted={d.pasted}
+    >
+      <div class="demo-window">
+        <div class="demo-bar">
+          <span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="demo-title">Hush — {d.window}</span>
+          <span class="demo-chip"><span aria-hidden="true"></span>{lang === 'ru' ? 'На этом Mac' : 'On this Mac'}</span>
+        </div>
+
+        <div class="demo-app">
+          <div class="demo-fields">
+            <div class="demo-field"><span>{d.to}</span><span class="demo-recipient"><i aria-hidden="true">D</i>{d.team}</span></div>
+            <div class="demo-field"><span>{d.subject}</span><span>{d.subjectValue}</span></div>
+          </div>
+
+          <div class="demo-body">
+            <p class="demo-greeting">{d.greeting}</p>
+            <p class="demo-copy">
+              <span class="js-typed">{d.typed}</span><span class="demo-caret" aria-hidden="true"></span>
+              <span class="demo-paste" data-paste><Icon name="check" size={11} strokeWidth={2.6} />{d.pasted}</span>
+            </p>
+            <p class="demo-placeholder" data-placeholder>{d.placeholder}</p>
+          </div>
+
+          <div class="demo-foot">
+            <button class="hold-button" type="button" data-hold aria-label={d.aria}>
+              <span class="hold-key" aria-hidden="true">Fn</span>
+              <span class="hold-copy">
+                <strong>{d.hold}</strong>
+                <small>{d.hint}</small>
+              </span>
+            </button>
+            <span class="send-chip" aria-hidden="true">{d.send}<Icon name="arrow-up-right" size={12} /></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-hud" aria-hidden="true">
+        <Hud state="listening" class="js-hud" />
+      </div>
+
+      <span class="sr-only" role="status" aria-live="polite" data-demo-live></span>
+    </div>
+  </div>
+</section>
