@@ -1,7 +1,7 @@
 {
   "name": "Hush — On-device dictation for macOS",
   "short_name": "Hush",
-  "description": "Hold a shortcut, speak, release. Hush types your words at the cursor in any Mac app.",
+  "description": "Hold a shortcut, speak, release. Hush types your words at the cursor on macOS or Windows.",
   "start_url": "./",
   "lang": "en",
   "dir": "ltr",

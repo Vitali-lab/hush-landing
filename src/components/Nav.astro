@@ -47,8 +47,8 @@ const links = [
       </div>
     </nav>
 
-    <a class="btn btn-primary nav-download" href={c.common.downloadUrl}>
-      <Icon name="apple" size={16} />
+    <a class="btn btn-primary nav-download" href="#install">
+      <Icon name="download" size={16} />
       <span>{c.nav.download}</span>
     </a>
   </div>
@@ -62,12 +62,12 @@ const links = [
       </div>
 
       <div class="menu-bottom">
-        <a class="btn btn-primary" href={c.common.downloadUrl}>
-          <Icon name="apple" size={17} />
-          {c.hero.download}
+        <a class="btn btn-primary" href="#install">
+          <Icon name="download" size={17} />
+          {c.nav.download}
         </a>
         <div class="menu-meta">
-          <span class="windows-chip"><span class="windows-dot" aria-hidden="true"></span>{c.hero.windows}</span>
+          <span class="windows-chip"><span class="windows-dot" aria-hidden="true"></span>{c.nav.windows}</span>
           <div class="menu-lang">
             <a class:list={{ active: lang === 'en' }} href={home('en')}>EN</a>
             <span aria-hidden="true">/</span>

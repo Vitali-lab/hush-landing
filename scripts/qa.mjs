@@ -65,6 +65,20 @@ result.theme = await page.evaluate(() => ({
 }));
 await page.screenshot({ path: 'shots/qa-theme-midnight.png' });
 
+// install platform tabs
+await page.$eval('#install', (el) => el.scrollIntoView({ block: 'start' }));
+await new Promise((r) => setTimeout(r, 250));
+await page.$eval('[data-install-tab="windows"]', (el) => el.click());
+await new Promise((r) => setTimeout(r, 250));
+result.install = await page.evaluate(() => ({
+  selected: document.querySelector('[data-install-tab="windows"]')?.getAttribute('aria-selected'),
+  macHidden: document.querySelector('[data-install-panel="macos"]')?.hidden,
+  winVisible: document.querySelector('[data-install-panel="windows"]')?.hidden === false,
+  winVisual: document.querySelector('[data-install-visual="windows"]')?.hidden === false,
+  href: document.querySelector('[data-install-panel="windows"] a')?.getAttribute('href'),
+}));
+await page.$eval('[data-install-tab="macos"]', (el) => el.click());
+
 // faq
 await page.$eval('#faq-button-1', (el) => el.click());
 result.faq = await page.$eval('#faq-button-1', (el) => el.getAttribute('aria-expanded'));

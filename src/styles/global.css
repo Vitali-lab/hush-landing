@@ -279,6 +279,20 @@ h2 {
   color: var(--ink);
 }
 
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: var(--white);
+  border-color: var(--ink-2);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
 .btn-outline {
   background: transparent;
   color: #fff;
@@ -1702,6 +1716,43 @@ body.menu-open .nav-download {
   margin-top: 14px;
 }
 
+.install-tabs {
+  display: inline-flex;
+  gap: 3px;
+  margin-top: 24px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-2);
+}
+
+.install-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--muted);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.install-tab:hover {
+  color: var(--ink);
+}
+
+.install-tab.is-active {
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgba(20, 32, 42, 0.14);
+}
+
+.install-panel .install-steps {
+  margin-top: 20px;
+}
+
 .install-steps {
   margin-top: 32px;
   border-top: 1px solid var(--line);
@@ -1753,6 +1804,107 @@ body.menu-open .nav-download {
 
 .install-shot {
   width: 100%;
+}
+
+.win-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  box-shadow: var(--shadow-lg);
+}
+
+.win-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.win-card-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 8px 18px -14px rgba(20, 32, 42, 0.45);
+}
+
+.win-card-head strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.win-card-tag {
+  display: inline-flex;
+  margin-top: 3px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--violet-bg);
+  color: var(--violet);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.win-card-lede {
+  margin-top: 22px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.win-specs {
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.win-specs > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.win-specs dt {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.win-specs dd {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  text-align: right;
+}
+
+.win-card-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 15px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.win-card-note svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--muted-2);
 }
 
 /* =========================================================
@@ -2353,6 +2505,11 @@ body.menu-open .nav-download {
 
   .install-grid {
     gap: 34px;
+  }
+
+  .win-card {
+    min-height: 0;
+    padding: 22px;
   }
 
   .faq {

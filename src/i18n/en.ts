@@ -2,9 +2,9 @@ export const en = {
   lang: 'en',
   htmlLang: 'en',
   meta: {
-    title: 'Hush — On-device dictation for macOS',
+    title: 'Hush — On-device dictation for macOS & Windows',
     description:
-      'Tired of typing? Hold a shortcut, speak, and Hush types it at the cursor in any Mac app. On-device, offline, no account.',
+      'Tired of typing? Hold a shortcut, speak, and Hush types it at the cursor on macOS or Windows. On-device, offline, no account.',
     ogAlt: 'Hush — tired of typing? Just speak.',
   },
   nav: {
@@ -15,18 +15,18 @@ export const en = {
     download: 'Download',
     menu: 'Open menu',
     close: 'Close menu',
-    windows: 'Windows — in development',
+    windows: 'Windows beta',
   },
   hero: {
-    eyebrow: 'On-device dictation for macOS',
+    eyebrow: 'On-device dictation for macOS & Windows',
     title1: 'Tired of typing?',
     title2: 'Just speak.',
     lede:
-      'Hold a shortcut, say what you mean, let go. Hush types it at the cursor in any app — on your Mac, not in the cloud.',
+      'Hold a shortcut, say what you mean, let go. Hush types it at the cursor in any app — on your computer, not in the cloud.',
     download: 'Download for macOS',
-    windows: 'Windows — in development',
+    windowsDownload: 'Windows beta',
     free: 'Free and open source',
-    meta: ['macOS 14+', 'Apple Silicon', '632 MB model, once'],
+    meta: ['macOS 14+', 'Apple Silicon', 'Windows 11 x64 beta'],
     shotAlt: 'Hush menu-bar popover and the floating dictation pill',
     demo: {
       window: 'Quick note',
@@ -36,15 +36,15 @@ export const en = {
       subjectValue: 'Launch notes',
       greeting: 'Hey team,',
       typed: "Let's ship the new landing page tonight.",
-      placeholder: 'Hold Fn and speak',
+      placeholder: 'Hold the key and speak',
       hold: 'Hold to try',
-      hint: 'Hold Fn, speak, release',
+      hint: 'Fn on Mac · Right Alt on Windows',
       send: 'Send',
       pasted: 'Pasted at the cursor',
       listening: 'Listening',
       thinking: 'Transcribing',
       done: 'Done',
-      aria: 'Hold the Fn key to preview dictation',
+      aria: 'Hold the shortcut key to preview dictation',
     },
   },
   apps: {
@@ -66,7 +66,8 @@ export const en = {
       { name: 'Telegram', icon: 'telegram.png' },
       { name: 'Discord', icon: 'discord.png' },
     ],
-  },  everywhere: {
+  },
+  everywhere: {
     label: 'Everywhere',
     title: 'Dictate anywhere you can type.',
     body:
@@ -74,53 +75,55 @@ export const en = {
     bullets: [
       { icon: 'keyboard', title: 'Any text field', body: 'If you can type there, you can dictate there.' },
       { icon: 'cursor', title: 'At the cursor', body: 'The text lands exactly where you were already writing.' },
-      { icon: 'layout', title: 'No window switching', body: 'Hush lives in the menu bar, not in your way.' },
+      { icon: 'layout', title: 'No window switching', body: 'Hush lives in the menu bar or system tray, not in your way.' },
     ],
     visualAlt: 'The apps Hush works in, with the floating dictation pill',
   },
   privacy: {
     label: 'Privacy',
-    title: 'Your voice never leaves this Mac.',
+    title: 'Your voice never leaves your device.',
     body:
-      'Whisper large-v3 Turbo runs on the Apple Neural Engine. Audio lives in memory, becomes text locally, and is discarded.',
+      'Whisper large-v3 Turbo runs locally. On macOS it uses the Apple Neural Engine; on Windows, the CPU. Audio lives in memory, becomes text locally, and is discarded.',
     bullets: [
-      { icon: 'shield', title: 'On-device', body: 'Recognition runs on the Neural Engine.' },
+      { icon: 'shield', title: 'On-device', body: 'Neural Engine on macOS, CPU on Windows.' },
       { icon: 'cloud-off', title: 'Nothing uploaded', body: 'No account, no cloud, no telemetry.' },
       { icon: 'lock', title: 'One download', body: 'The speech model is the only network request. Ever.' },
     ],
-    note: '632 MB, downloaded once. After that, Hush works with Wi-Fi off.',
-    imageAlt: 'Hush model settings showing Whisper running on the Neural Engine',
+    note: '632 MB on macOS, 574 MB on Windows. Downloaded once. After that, Hush works with Wi-Fi off.',
+    imageAlt: 'Hush model settings on macOS, showing Whisper on the Neural Engine',
   },
   speed: {
     label: 'Speed',
     title: 'Fast, then gone.',
     body:
-      'The model loads in under two seconds, uses about one browser tab of memory, and unloads itself when you stop.',
+      'On a Mac, the model loads in under two seconds, uses about one browser tab of memory, and unloads itself when you stop. Windows runs whisper.cpp on the CPU; speed depends on the machine.',
     bullets: [
-      { icon: 'bolt', title: '1.8 s', body: 'Cold model load.' },
-      { icon: 'cpu', title: '130–200 MB', body: 'RAM while dictating.' },
+      { icon: 'bolt', title: '1.8 s', body: 'Cold model load on Apple Silicon.' },
+      { icon: 'cpu', title: '130–200 MB', body: 'RAM while dictating on macOS.' },
       { icon: 'timer', title: '8 min', body: 'Then the model unloads.' },
     ],
-    imageAlt: 'Hush menu popover with dictation stats',
+    imageAlt: 'Hush menu popover on macOS with dictation stats',
   },
   shortcuts: {
     label: 'Control',
     title: 'Your shortcut. Your rules.',
     body:
-      'Hold Fn, hold Right Option, use a combination, or record any key. Choose hold-to-talk or hands-free.',
+      'Hold Right Option on Mac or Right Alt on Windows, use a combination, or record any key. Hold to talk, or tap to start and stop.',
     bullets: [
-      { icon: 'key', title: 'Any key', body: 'Fn, a modifier, a combo, or a key you record.' },
+      { icon: 'key', title: 'Any key', body: 'Fn or Right Option on Mac; Right Alt on Windows.' },
       { icon: 'toggle', title: 'Hold or toggle', body: 'Press and hold, or tap to start and stop.' },
       { icon: 'sound', title: 'Quiet feedback', body: 'Four start sounds and one soft stop tick.' },
     ],
-    imageAlt: 'Hush shortcut settings with presets and hold mode',
+    note: 'Fn is not available on Windows keyboards.',
+    noteIcon: 'windows',
+    imageAlt: 'Hush shortcut settings on macOS with presets and hold mode',
   },
   themes: {
     label: 'Themes',
     title: 'Five themes. One quiet app.',
     body:
-      'System follows macOS. Daylight and Sand stay light. Graphite and Midnight go dark. The pill and accents follow.',
-    hint: 'Click a theme to preview it.',
+      'System follows your OS. Daylight and Sand stay light. Graphite and Midnight go dark. The pill and accents follow.',
+    hint: 'Click a theme to preview it. Screenshots show the macOS app.',
     imageAlt: 'Hush settings preview in the selected theme',
     list: [
       { id: 'system', name: 'System' },
@@ -134,15 +137,43 @@ export const en = {
     label: 'Install',
     title: 'Ready in four steps.',
     body: 'The app is small. The speech model is the only big download.',
-    steps: [
-      { title: 'Download the DMG', body: 'Open it and drag Hush into Applications.' },
-      { title: 'Allow the microphone', body: 'Hush needs to hear you. Audio is processed in memory.' },
-      { title: 'Allow Accessibility', body: 'For the global shortcut and pasting into other apps.' },
-      { title: 'Download the model once', body: '632 MB, then transcription runs offline.' },
+    tabs: [
+      { id: 'macos', label: 'macOS' },
+      { id: 'windows', label: 'Windows beta' },
     ],
-    requirements: 'macOS 14 or newer · Apple Silicon · Intel builds are not provided.',
-    download: 'Download Hush',
-    imageAlt: 'Hush setup screen with microphone, accessibility and speech model steps',
+    macos: {
+      steps: [
+        { title: 'Download the DMG', body: 'Open it and drag Hush into Applications.' },
+        { title: 'Allow the microphone', body: 'Hush needs to hear you. Audio is processed in memory.' },
+        { title: 'Allow Accessibility', body: 'For the global shortcut and pasting into other apps.' },
+        { title: 'Download the model once', body: '632 MB, then transcription runs offline.' },
+      ],
+      requirements: 'macOS 14 or newer · Apple Silicon · Intel builds are not provided.',
+      download: 'Download for macOS',
+      imageAlt: 'Hush setup screen with microphone, accessibility and speech model steps',
+    },
+    windows: {
+      steps: [
+        { title: 'Download the ZIP', body: 'Get Hush-Windows-x64.zip from the latest release.' },
+        { title: 'Extract it anywhere', body: 'The folder is portable. There is no installer.' },
+        { title: 'Run Hush.exe', body: 'Unsigned beta: SmartScreen → More info → Run anyway.' },
+        { title: 'Download the model once', body: 'Settings → Model · 574 MB. Then it works offline.' },
+      ],
+      requirements: 'Windows 11 x64 · AVX2 · unsigned beta',
+      download: 'Download Windows beta',
+      card: {
+        title: 'Hush for Windows',
+        tag: 'Beta',
+        lede: 'Portable ZIP. No installer.',
+        specs: [
+          ['System', 'Windows 11 x64'],
+          ['CPU', 'AVX2'],
+          ['Download', '68 MB + 574 MB model'],
+        ],
+        note: 'Unsigned build. SmartScreen may warn: More info → Run anyway.',
+        shortcut: 'Default shortcut: Right Alt. Settings live in %APPDATA%\\Hush.',
+      },
+    },
   },
   faq: {
     label: 'FAQ',
@@ -151,19 +182,19 @@ export const en = {
     items: [
       {
         q: 'Does Hush work offline?',
-        a: 'Yes. After the one-time model download, everything runs on the Mac. You can turn Wi-Fi off and keep dictating.',
+        a: 'Yes. After the one-time model download, everything runs on your computer. You can turn Wi-Fi off and keep dictating.',
       },
       {
         q: 'Where does my audio go?',
         a: 'Nowhere. It stays in memory, becomes text locally and is discarded. Hush has no networking code except the one-time model download.',
       },
       {
-        q: 'Which Macs are supported?',
-        a: 'macOS 14 or newer on Apple Silicon. Intel builds are not provided.',
+        q: 'Which systems are supported?',
+        a: 'macOS 14+ on Apple Silicon, and Windows 11 x64 as a beta. Windows needs an AVX2 CPU. Intel Macs and Linux are not supported.',
       },
       {
         q: 'Is there a Windows version?',
-        a: 'Not yet. A Windows build is in development — follow the GitHub repository for the first release.',
+        a: 'Yes — a Windows 11 x64 beta is available. Download the ZIP, extract it, and run Hush.exe. It is unsigned, so SmartScreen may warn. The first model download is 574 MB.',
       },
       {
         q: 'Why does macOS ask for Accessibility?',
@@ -177,16 +208,17 @@ export const en = {
   },
   cta: {
     title: 'Start talking. Stop typing.',
-    body: 'Download Hush, allow two permissions, and dictate your next sentence.',
+    body: 'Download Hush, allow the microphone, and dictate your next sentence.',
     download: 'Download for macOS',
-    windows: 'Windows — in development',
-    meta: 'Free · Open source · macOS 14+',
+    windows: 'Windows beta',
+    meta: 'Free · Open source · macOS 14+ · Windows 11 x64 beta',
   },
   footer: {
-    tagline: 'On-device dictation for macOS.',
+    tagline: 'On-device dictation for macOS & Windows.',
     product: 'Product',
     linksProduct: [
-      ['Download', 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg'],
+      ['Download for macOS', 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg'],
+      ['Windows beta', 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-Windows-x64.zip'],
       ['Releases', 'https://github.com/Vitali-lab/hush/releases'],
       ['Changelog', 'https://github.com/Vitali-lab/hush/blob/main/CHANGELOG.md'],
       ['Source', 'https://github.com/Vitali-lab/hush'],
@@ -205,11 +237,11 @@ export const en = {
   },
   common: {
     downloadUrl: 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg',
+    windowsUrl: 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-Windows-x64.zip',
+    windowsAvailable: true,
     repo: 'https://github.com/Vitali-lab/hush',
     releases: 'https://github.com/Vitali-lab/hush/releases',
     issues: 'https://github.com/Vitali-lab/hush/issues',
-    windowsUrl: '',
-    windowsAvailable: false,
   },
 };
 

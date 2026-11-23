@@ -11,47 +11,130 @@ const c = getCopy(lang);
 const s = c.install;
 ---
 
-<section class="install" id="install">
+<section class="install" id="install" data-install>
   <div class="wrap install-grid">
     <div class="install-copy">
       <span class="feature-label">{s.label}</span>
       <h2>{s.title}</h2>
       <p class="feature-body">{s.body}</p>
 
-      <ol class="install-steps">
-        {s.steps.map((step, i) => (
-          <li>
-            <span class="install-num">{String(i + 1).padStart(2, '0')}</span>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </div>
-          </li>
+      <div class="install-tabs" role="tablist" aria-label={lang === 'ru' ? 'Платформа' : 'Platform'}>
+        {s.tabs.map((tab, i) => (
+          <button
+            class:list={['install-tab', { 'is-active': i === 0 }]}
+            type="button"
+            role="tab"
+            id={`install-tab-${tab.id}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-controls={`install-panel-${tab.id}`}
+            tabindex={i === 0 ? '0' : '-1'}
+            data-install-tab={tab.id}
+          >
+            {tab.id === 'windows' ? <Icon name="windows" size={14} /> : <Icon name="apple" size={13} />}
+            {tab.label}
+          </button>
         ))}
-      </ol>
+      </div>
 
-      <div class="install-action">
-        <a class="btn btn-primary" href={c.common.downloadUrl}>
-          <Icon name="apple" size={17} />
-          {s.download}
-        </a>
-        <span class="install-req">{s.requirements}</span>
+      <div class="install-panels">
+        <div
+          class="install-panel"
+          id="install-panel-macos"
+          role="tabpanel"
+          aria-labelledby="install-tab-macos"
+          data-install-panel="macos"
+        >
+          <ol class="install-steps">
+            {s.macos.steps.map((step, i) => (
+              <li>
+                <span class="install-num">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div class="install-action">
+            <a class="btn btn-primary" href={c.common.downloadUrl}>
+              <Icon name="apple" size={17} />
+              {s.macos.download}
+            </a>
+            <span class="install-req">{s.macos.requirements}</span>
+          </div>
+        </div>
+
+        <div
+          class="install-panel"
+          id="install-panel-windows"
+          role="tabpanel"
+          aria-labelledby="install-tab-windows"
+          data-install-panel="windows"
+          hidden
+        >
+          <ol class="install-steps">
+            {s.windows.steps.map((step, i) => (
+              <li>
+                <span class="install-num">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div class="install-action">
+            <a class="btn btn-primary" href={c.common.windowsUrl}>
+              <Icon name="windows" size={17} />
+              {s.windows.download}
+            </a>
+            <span class="install-req">{s.windows.requirements}</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <figure class="install-shot">
-      <div class="shot-bar" aria-hidden="true">
-        <span class="traffic"><i></i><i></i><i></i></span>
-        <span class="shot-bar-title">Hush — {lang === 'ru' ? 'Настройки' : 'Settings'}</span>
+    <div class="install-visual">
+      <div class="install-visual-panel" data-install-visual="macos">
+        <figure class="install-shot">
+          <div class="shot-bar" aria-hidden="true">
+            <span class="traffic"><i></i><i></i><i></i></span>
+            <span class="shot-bar-title">Hush — {lang === 'ru' ? 'Настройки' : 'Settings'}</span>
+            <span class="shot-bar-tag">macOS</span>
+          </div>
+          <img
+            src={asset(`/img/shots/setup-${lang}.webp`)}
+            alt={s.macos.imageAlt}
+            width="1760"
+            height="1840"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
       </div>
-      <img
-        src={asset(`/img/shots/setup-${lang}.webp`)}
-        alt={s.imageAlt}
-        width="1760"
-        height="1840"
-        loading="lazy"
-        decoding="async"
-      />
-    </figure>
+
+      <div class="install-visual-panel" data-install-visual="windows" hidden>
+        <div class="win-card">
+          <div class="win-card-head">
+            <span class="win-card-icon" aria-hidden="true"><Icon name="windows" size={26} /></span>
+            <div>
+              <strong>{s.windows.card.title}</strong>
+              <span class="win-card-tag">{s.windows.card.tag}</span>
+            </div>
+          </div>
+          <p class="win-card-lede">{s.windows.card.lede}</p>
+          <dl class="win-specs">
+            {s.windows.card.specs.map(([label, value]) => (
+              <div>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p class="win-card-note"><Icon name="shield" size={14} />{s.windows.card.note}</p>
+          <p class="win-card-note"><Icon name="key" size={14} />{s.windows.card.shortcut}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

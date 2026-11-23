@@ -227,6 +227,52 @@ function initDemo() {
   });
 }
 
+/* ---------- install platform tabs ---------- */
+
+function initInstallTabs() {
+  const root = document.querySelector<HTMLElement>('[data-install]');
+  if (!root) return;
+  const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-install-tab]'));
+  const panels = Array.from(root.querySelectorAll<HTMLElement>('[data-install-panel]'));
+  const visuals = Array.from(root.querySelectorAll<HTMLElement>('[data-install-visual]'));
+
+  const activate = (id: string, focus = false) => {
+    tabs.forEach((tab) => {
+      const active = tab.dataset.installTab === id;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
+    });
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.installPanel !== id;
+    });
+    visuals.forEach((visual) => {
+      visual.hidden = visual.dataset.installVisual !== id;
+    });
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => activate(tab.dataset.installTab ?? 'macos'));
+  });
+
+  if (/Windows/i.test(navigator.userAgent)) activate('windows');
+
+  root.querySelector('[role="tablist"]')?.addEventListener('keydown', (event) => {
+    const key = (event as KeyboardEvent).key;
+    const current = tabs.findIndex((tab) => tab.getAttribute('aria-selected') === 'true');
+    if (current === -1) return;
+    let next = current;
+    if (key === 'ArrowRight' || key === 'ArrowDown') next = (current + 1) % tabs.length;
+    else if (key === 'ArrowLeft' || key === 'ArrowUp') next = (current - 1 + tabs.length) % tabs.length;
+    else if (key === 'Home') next = 0;
+    else if (key === 'End') next = tabs.length - 1;
+    else return;
+    event.preventDefault();
+    activate(tabs[next].dataset.installTab ?? 'macos', true);
+  });
+}
+
 /* ---------- themes ---------- */
 
 const THEMES = ['system', 'daylight', 'sand', 'graphite', 'midnight'] as const;
@@ -291,5 +337,6 @@ function initFaq() {
 
 initNav();
 initDemo();
+initInstallTabs();
 initThemes();
 initFaq();

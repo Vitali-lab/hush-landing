@@ -5,7 +5,7 @@
 
 - Живой сайт: `https://vitali-lab.github.io/hush-landing/`
 - Скачивание: `https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg`
-- Windows: везде указано «в разработке» / «in development».
+- Windows beta: `https://github.com/Vitali-lab/hush/releases/latest/download/Hush-Windows-x64.zip`
 
 ## Стек
 
@@ -54,8 +54,9 @@ public/
 Весь текст — в `src/i18n/en.ts` и `src/i18n/ru.ts`. Ссылка на скачивание —
 `common.downloadUrl` в обоих файлах.
 
-Упоминания Windows есть в hero, футере, CTA и FAQ. Когда появится сборка,
-замените чипы на ссылку и обновите FAQ.
+Windows beta уже в релизе: кнопки на macOS и Windows есть в hero, установке,
+CTA и футере. Windows-сборка — портативный ZIP для Windows 11 x64, требует AVX2,
+не подписана (SmartScreen может предупредить). Модель на Windows — 574 МБ.
 
 ## Скриншоты
 

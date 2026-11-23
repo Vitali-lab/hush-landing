@@ -9,9 +9,10 @@ interface Props {
   bullets: { icon: string; title: string; body: string }[];
   reverse?: boolean;
   note?: string;
+  noteIcon?: string;
   tone?: 'white' | 'cream';
 }
-const { id, label, title, body, bullets, reverse = false, note, tone = 'white' } = Astro.props;
+const { id, label, title, body, bullets, reverse = false, note, noteIcon = 'lock', tone = 'white' } = Astro.props;
 ---
 
 <section class:list={['feature', `feature-${tone}`, { 'feature-reverse': reverse }]} id={id}>
@@ -33,7 +34,7 @@ const { id, label, title, body, bullets, reverse = false, note, tone = 'white' }
         ))}
       </ul>
 
-      {note && <p class="feature-note"><Icon name="lock" size={14} />{note}</p>}
+      {note && <p class="feature-note"><Icon name={noteIcon} size={14} />{note}</p>}
     </div>
 
     <div class="feature-visual">

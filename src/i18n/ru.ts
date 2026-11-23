@@ -4,9 +4,9 @@ export const ru: Copy = {
   lang: 'ru',
   htmlLang: 'ru',
   meta: {
-    title: 'Hush — диктовка на устройстве для macOS',
+    title: 'Hush — диктовка на устройстве для macOS и Windows',
     description:
-      'Устал печатать? Зажми хоткей, скажи — Hush впечатает текст у курсора в любом приложении на Mac. Локально, офлайн, без аккаунта.',
+      'Устал печатать? Зажми хоткей, скажи — Hush впечатает текст у курсора на macOS или Windows. Локально, офлайн, без аккаунта.',
     ogAlt: 'Hush — устал печатать? Просто скажи.',
   },
   nav: {
@@ -17,18 +17,18 @@ export const ru: Copy = {
     download: 'Скачать',
     menu: 'Открыть меню',
     close: 'Закрыть меню',
-    windows: 'Windows — в разработке',
+    windows: 'Windows beta',
   },
   hero: {
-    eyebrow: 'Диктовка на устройстве для macOS',
+    eyebrow: 'Диктовка на устройстве для macOS и Windows',
     title1: 'Устал печатать?',
     title2: 'Просто скажи.',
     lede:
-      'Зажми хоткей, скажи что нужно, отпусти — Hush впечатает текст у курсора в любом приложении. На твоём Mac, не в облаке.',
+      'Зажми хоткей, скажи что нужно, отпусти — Hush впечатает текст у курсора в любом приложении. На твоём компьютере, не в облаке.',
     download: 'Скачать для macOS',
-    windows: 'Windows — в разработке',
+    windowsDownload: 'Windows beta',
     free: 'Бесплатно и с открытым кодом',
-    meta: ['macOS 14+', 'Apple Silicon', 'модель 632 МБ, один раз'],
+    meta: ['macOS 14+', 'Apple Silicon', 'Windows 11 x64 beta'],
     shotAlt: 'Поповер Hush в меню-баре и плавающая пилюля диктовки',
     demo: {
       window: 'Быстрая заметка',
@@ -38,15 +38,15 @@ export const ru: Copy = {
       subjectValue: 'Заметки к релизу',
       greeting: 'Привет, команда!',
       typed: 'Давай выпустим лендинг сегодня вечером.',
-      placeholder: 'Зажми Fn и говори',
+      placeholder: 'Зажми клавишу и говори',
       hold: 'Зажми, чтобы попробовать',
-      hint: 'Зажми Fn, говори, отпусти',
+      hint: 'Fn на Mac · правый Alt на Windows',
       send: 'Отправить',
       pasted: 'Вставлено у курсора',
       listening: 'Слушаю',
       thinking: 'Распознаю',
       done: 'Готово',
-      aria: 'Зажми клавишу Fn, чтобы посмотреть, как работает диктовка',
+      aria: 'Зажми клавишу хоткея, чтобы посмотреть, как работает диктовка',
     },
   },
   apps: {
@@ -68,7 +68,8 @@ export const ru: Copy = {
       { name: 'Telegram', icon: 'telegram.png' },
       { name: 'Discord', icon: 'discord.png' },
     ],
-  },  everywhere: {
+  },
+  everywhere: {
     label: 'Везде',
     title: 'Диктуй везде, где можно печатать.',
     body:
@@ -76,53 +77,55 @@ export const ru: Copy = {
     bullets: [
       { icon: 'keyboard', title: 'Любое поле', body: 'Если там можно печатать, туда можно и говорить.' },
       { icon: 'cursor', title: 'У курсора', body: 'Текст появляется там, где ты уже писал.' },
-      { icon: 'layout', title: 'Без переключения окон', body: 'Hush живёт в меню-баре и не мешает.' },
+      { icon: 'layout', title: 'Без переключения окон', body: 'Hush живёт в меню-баре или трее и не мешает.' },
     ],
     visualAlt: 'Приложения, в которых работает Hush, и плавающая пилюля диктовки',
   },
   privacy: {
     label: 'Приватность',
-    title: 'Твой голос не покидает этот Mac.',
+    title: 'Твой голос не покидает твоё устройство.',
     body:
-      'Whisper large-v3 Turbo работает на Apple Neural Engine. Аудио живёт в памяти, распознаётся локально и выбрасывается.',
+      'Whisper large-v3 Turbo работает локально. На macOS — на Apple Neural Engine, на Windows — на CPU. Аудио живёт в памяти, распознаётся на месте и выбрасывается.',
     bullets: [
-      { icon: 'shield', title: 'На устройстве', body: 'Распознавание идёт на Neural Engine.' },
+      { icon: 'shield', title: 'На устройстве', body: 'Neural Engine на macOS, CPU на Windows.' },
       { icon: 'cloud-off', title: 'Никуда не уходит', body: 'Без аккаунта, облака и телеметрии.' },
       { icon: 'lock', title: 'Одна загрузка', body: 'Речевая модель — единственный сетевой запрос.' },
     ],
-    note: '632 МБ один раз. Дальше Hush работает с выключенным Wi-Fi.',
-    imageAlt: 'Настройки моделей Hush: Whisper работает на Neural Engine',
+    note: '632 МБ на macOS, 574 МБ на Windows. Один раз. Дальше Hush работает с выключенным Wi-Fi.',
+    imageAlt: 'Настройки моделей Hush на macOS: Whisper работает на Neural Engine',
   },
   speed: {
     label: 'Скорость',
     title: 'Быстро — и снова тихо.',
     body:
-      'Модель грузится меньше двух секунд, занимает примерно одну вкладку памяти и выгружается, когда ты замолкаешь.',
+      'На Mac модель грузится меньше двух секунд, занимает примерно одну вкладку памяти и выгружается, когда ты замолкаешь. На Windows whisper.cpp работает на CPU; скорость зависит от машины.',
     bullets: [
-      { icon: 'bolt', title: '1,8 с', body: 'Загрузка модели.' },
-      { icon: 'cpu', title: '130–200 МБ', body: 'Памяти при диктовке.' },
+      { icon: 'bolt', title: '1,8 с', body: 'Загрузка модели на Apple Silicon.' },
+      { icon: 'cpu', title: '130–200 МБ', body: 'Памяти при диктовке на macOS.' },
       { icon: 'timer', title: '8 мин', body: 'И модель выгружается.' },
     ],
-    imageAlt: 'Поповер Hush со статистикой диктовки',
+    imageAlt: 'Поповер Hush на macOS со статистикой диктовки',
   },
   shortcuts: {
     label: 'Управление',
     title: 'Свой хоткей. Свои правила.',
     body:
-      'Удерживай Fn, правый Option, комбинацию — или запиши любую клавишу. Режим удержания или старт и стоп по нажатию.',
+      'Удерживай правый Option на Mac или правый Alt на Windows, используй комбинацию или запиши любую клавишу. Режим удержания или старт и стоп по нажатию.',
     bullets: [
-      { icon: 'key', title: 'Любая клавиша', body: 'Fn, модификатор, комбинация или своя клавиша.' },
+      { icon: 'key', title: 'Любая клавиша', body: 'Fn или правый Option на Mac; правый Alt на Windows.' },
       { icon: 'toggle', title: 'Удержание или старт', body: 'Держи, пока говоришь, или нажми один раз.' },
       { icon: 'sound', title: 'Тихий отклик', body: 'Четыре звука старта и мягкий щелчок.' },
     ],
-    imageAlt: 'Настройки хоткея Hush с пресетами и режимом удержания',
+    note: 'На клавиатурах Windows клавиша Fn недоступна.',
+    noteIcon: 'windows',
+    imageAlt: 'Настройки хоткея Hush на macOS с пресетами и режимом удержания',
   },
   themes: {
     label: 'Темы',
     title: 'Пять тем. Одно тихое приложение.',
     body:
-      'Системная следует за macOS. Светлая и Песочная остаются светлыми. Графит и Полночь уходят в темноту. Пилюля и акценты меняются вместе с ними.',
-    hint: 'Нажми на тему, чтобы посмотреть.',
+      'Системная следует за твоей ОС. Светлая и Песочная остаются светлыми. Графит и Полночь уходят в темноту. Пилюля и акценты меняются вместе с ними.',
+    hint: 'Нажми на тему, чтобы посмотреть. Скриншоты показывают приложение на macOS.',
     imageAlt: 'Настройки Hush в выбранной теме',
     list: [
       { id: 'system', name: 'Системная' },
@@ -136,15 +139,43 @@ export const ru: Copy = {
     label: 'Установка',
     title: 'Готово за четыре шага.',
     body: 'Приложение маленькое. Большая загрузка только одна — речевая модель.',
-    steps: [
-      { title: 'Скачай DMG', body: 'Открой и перетащи Hush в Applications.' },
-      { title: 'Разреши микрофон', body: 'Hush нужно тебя слышать. Аудио обрабатывается в памяти.' },
-      { title: 'Разреши Accessibility', body: 'Для глобального хоткея и вставки в другие приложения.' },
-      { title: 'Скачай модель один раз', body: '632 МБ, дальше распознавание работает офлайн.' },
+    tabs: [
+      { id: 'macos', label: 'macOS' },
+      { id: 'windows', label: 'Windows beta' },
     ],
-    requirements: 'macOS 14 или новее · Apple Silicon · сборок для Intel нет.',
-    download: 'Скачать Hush',
-    imageAlt: 'Экран настройки Hush с шагами для микрофона, Accessibility и речевой модели',
+    macos: {
+      steps: [
+        { title: 'Скачай DMG', body: 'Открой и перетащи Hush в Applications.' },
+        { title: 'Разреши микрофон', body: 'Hush нужно тебя слышать. Аудио обрабатывается в памяти.' },
+        { title: 'Разреши Accessibility', body: 'Для глобального хоткея и вставки в другие приложения.' },
+        { title: 'Скачай модель один раз', body: '632 МБ, дальше распознавание работает офлайн.' },
+      ],
+      requirements: 'macOS 14 или новее · Apple Silicon · сборок для Intel нет.',
+      download: 'Скачать для macOS',
+      imageAlt: 'Экран настройки Hush с шагами для микрофона, Accessibility и речевой модели',
+    },
+    windows: {
+      steps: [
+        { title: 'Скачай ZIP', body: 'Hush-Windows-x64.zip из последнего релиза.' },
+        { title: 'Распакуй куда угодно', body: 'Папка портативная. Установщика нет.' },
+        { title: 'Запусти Hush.exe', body: 'Сборка без подписи: SmartScreen → Подробнее → Выполнить всё равно.' },
+        { title: 'Скачай модель один раз', body: 'Настройки → Модель · 574 МБ. Дальше всё офлайн.' },
+      ],
+      requirements: 'Windows 11 x64 · AVX2 · бета без подписи',
+      download: 'Скачать Windows beta',
+      card: {
+        title: 'Hush для Windows',
+        tag: 'Бета',
+        lede: 'Портативный ZIP. Без установщика.',
+        specs: [
+          ['Система', 'Windows 11 x64'],
+          ['Процессор', 'AVX2'],
+          ['Загрузка', '68 МБ + модель 574 МБ'],
+        ],
+        note: 'Сборка без подписи. SmartScreen может предупредить: Подробнее → Выполнить всё равно.',
+        shortcut: 'Хоткей по умолчанию — правый Alt. Настройки в %APPDATA%\\Hush.',
+      },
+    },
   },
   faq: {
     label: 'Вопросы',
@@ -153,19 +184,19 @@ export const ru: Copy = {
     items: [
       {
         q: 'Hush работает офлайн?',
-        a: 'Да. После одной загрузки модели всё идёт на Mac. Можно выключить Wi-Fi и продолжать диктовать.',
+        a: 'Да. После одной загрузки модели всё идёт на твоём компьютере. Можно выключить Wi-Fi и продолжать диктовать.',
       },
       {
         q: 'Куда уходит аудио?',
         a: 'Никуда. Оно остаётся в памяти, распознаётся локально и выбрасывается. Сети в Hush нет, кроме загрузки модели.',
       },
       {
-        q: 'Какие Mac поддерживаются?',
-        a: 'macOS 14 или новее на Apple Silicon. Сборок для Intel нет.',
+        q: 'Какие системы поддерживаются?',
+        a: 'macOS 14+ на Apple Silicon и Windows 11 x64 в бете. На Windows нужен процессор с AVX2. Intel Mac и Linux не поддерживаются.',
       },
       {
-        q: 'Будет ли версия для Windows?',
-        a: 'Пока нет, но мы над ней работаем. Первый билд появится в репозитории на GitHub.',
+        q: 'Есть ли версия для Windows?',
+        a: 'Да, есть бета для Windows 11 x64. Скачай ZIP, распакуй и запусти Hush.exe. Сборка без подписи, поэтому SmartScreen может предупредить. Первая загрузка модели — 574 МБ.',
       },
       {
         q: 'Зачем macOS просит Accessibility?',
@@ -179,16 +210,17 @@ export const ru: Copy = {
   },
   cta: {
     title: 'Хватит печатать. Начни говорить.',
-    body: 'Скачай Hush, разреши два доступа — и продиктуй следующее предложение.',
+    body: 'Скачай Hush, разреши микрофон — и продиктуй следующее предложение.',
     download: 'Скачать для macOS',
-    windows: 'Windows — в разработке',
-    meta: 'Бесплатно · Открытый код · macOS 14+',
+    windows: 'Windows beta',
+    meta: 'Бесплатно · Открытый код · macOS 14+ · Windows 11 x64 beta',
   },
   footer: {
-    tagline: 'Диктовка на устройстве для macOS.',
+    tagline: 'Диктовка на устройстве для macOS и Windows.',
     product: 'Продукт',
     linksProduct: [
-      ['Скачать', 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg'],
+      ['Скачать для macOS', 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg'],
+      ['Windows beta', 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-Windows-x64.zip'],
       ['Релизы', 'https://github.com/Vitali-lab/hush/releases'],
       ['Changelog', 'https://github.com/Vitali-lab/hush/blob/main/CHANGELOG.md'],
       ['Исходники', 'https://github.com/Vitali-lab/hush'],
@@ -207,10 +239,10 @@ export const ru: Copy = {
   },
   common: {
     downloadUrl: 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg',
+    windowsUrl: 'https://github.com/Vitali-lab/hush/releases/latest/download/Hush-Windows-x64.zip',
+    windowsAvailable: true,
     repo: 'https://github.com/Vitali-lab/hush',
     releases: 'https://github.com/Vitali-lab/hush/releases',
     issues: 'https://github.com/Vitali-lab/hush/issues',
-    windowsUrl: '',
-    windowsAvailable: false,
   },
 };
