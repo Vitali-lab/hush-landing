@@ -1,7 +1,7 @@
 node_modules/
 dist/
 .astro/
-shots/
-ref/
+/shots/
+/ref/
 .DS_Store
 *.log
