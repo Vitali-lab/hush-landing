@@ -69,13 +69,6 @@ await page.screenshot({ path: 'shots/qa-theme-midnight.png' });
 await page.$eval('#faq-button-1', (el) => el.click());
 result.faq = await page.$eval('#faq-button-1', (el) => el.getAttribute('aria-expanded'));
 
-// copy
-const context = browser.defaultBrowserContext();
-await context.overridePermissions(BASE, ['clipboard-read', 'clipboard-write']);
-await page.$eval('[data-copy]', (el) => el.click());
-await new Promise((r) => setTimeout(r, 250));
-result.copy = await page.$eval('[data-copy-label]', (el) => el.textContent);
-
 // mobile
 await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
 await page.goto(BASE, { waitUntil: 'networkidle0' });

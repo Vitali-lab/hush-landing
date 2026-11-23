@@ -3,6 +3,7 @@
 Лендинг для [Hush](https://github.com/Vitali-lab/hush) — диктовки на устройстве для macOS.
 Две локали: английская на `/`, русская на `/ru/`.
 
+- Живой сайт: `https://vitali-lab.github.io/hush-landing/`
 - Скачивание: `https://github.com/Vitali-lab/hush/releases/latest/download/Hush-macOS-arm64.dmg`
 - Windows: везде указано «в разработке» / «in development».
 
@@ -19,6 +20,7 @@
 npm ci
 npm run dev       # http://localhost:4321
 npm run build     # dist/
+npm run build:pages # dist + docs/ для GitHub Pages
 npm run preview   # локальный предпросмотр сборки
 npm run fonts     # перекачать Manrope в public/fonts
 ```
@@ -89,11 +91,18 @@ Pages с `BASE_PATH=/hush-landing` `robots.txt` и `sitemap.xml` окажутс�
 ## Деплой
 
 Сайт статический: подойдут Vercel, Netlify, Cloudflare Pages или GitHub Pages.
-Для GitHub Pages есть готовый пример — `deploy/pages.yml.example`. Скопируйте
-его в `.github/workflows/deploy.yml` после включения Pages (Settings → Pages →
-Source: GitHub Actions). Для пуша workflow-файла нужен токен с `workflow` scope.
+Сейчас он публикуется из папки `docs/` на ветке `main`:
 
-В примере заданы:
+```bash
+npm run build:pages
+git add docs && git commit -m "Update site" && git push
+```
+
+В GitHub: Settings → Pages → Source: Deploy from a branch → `main` / `/docs`.
+Готовый workflow для Actions (если позже понадобится) лежит в
+`deploy/pages.yml.example`; для пуша workflow-файла нужен токен с `workflow` scope.
+
+В примере workflow заданы:
 
 - `SITE_URL=https://vitali-lab.github.io`
 - `BASE_PATH=/hush-landing`
@@ -109,7 +118,5 @@ BASE_PATH=/hush-landing SITE_URL=https://vitali-lab.github.io npm run build
 
 ## Важно
 
-- Hush подписан, но пока не нотаризован. Инструкция для первого запуска
-  (right-click → Open и `xattr`) вынесена в блок установки.
 - Сайт не собирает данные и не подключает аналитику.
 - Лицензия кода лендинга — MIT. Шрифт Manrope — SIL OFL 1.1.

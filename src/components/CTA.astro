@@ -21,9 +21,19 @@ const s = c.cta;
           <Icon name="apple" size={19} />
           {s.download}
         </a>
+        {c.common.windowsAvailable ? (
+          <a class="btn btn-outline btn-lg" href={c.common.windowsUrl}>
+            <Icon name="windows" size={18} />
+            {s.windows}
+          </a>
+        ) : (
+          <button class="btn btn-outline btn-lg" type="button" disabled>
+            <Icon name="windows" size={18} />
+            {s.windows}
+          </button>
+        )}
       </div>
       <div class="cta-meta">
-        <span class="windows-chip is-dark"><Icon name="windows" size={13} />{s.windows}</span>
         <span>{s.meta}</span>
       </div>
     </div>

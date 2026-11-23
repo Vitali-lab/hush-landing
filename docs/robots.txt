@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vitali-lab.github.io/hush-landing/sitemap.xml

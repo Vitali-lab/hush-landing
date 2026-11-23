@@ -274,40 +274,6 @@ function initThemes() {
   });
 }
 
-/* ---------- copy command ---------- */
-
-function initCopy() {
-  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
-    const label = button.querySelector('[data-copy-label]');
-    const original = label?.textContent ?? button.textContent ?? '';
-    const copied = button.dataset.copied ?? 'Copied';
-    let timer = 0;
-
-    button.addEventListener('click', async () => {
-      const value = button.dataset.copy ?? '';
-      try {
-        await navigator.clipboard.writeText(value);
-      } catch {
-        const area = document.createElement('textarea');
-        area.value = value;
-        area.style.position = 'fixed';
-        area.style.opacity = '0';
-        document.body.append(area);
-        area.select();
-        document.execCommand('copy');
-        area.remove();
-      }
-      button.classList.add('is-copied');
-      if (label) label.textContent = copied;
-      window.clearTimeout(timer);
-      timer = window.setTimeout(() => {
-        button.classList.remove('is-copied');
-        if (label) label.textContent = original;
-      }, 2000);
-    });
-  });
-}
-
 /* ---------- FAQ ---------- */
 
 function initFaq() {
@@ -326,5 +292,4 @@ function initFaq() {
 initNav();
 initDemo();
 initThemes();
-initCopy();
 initFaq();

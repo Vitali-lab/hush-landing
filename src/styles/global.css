@@ -279,6 +279,29 @@ h2 {
   color: var(--ink);
 }
 
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: none;
+}
+
+.btn-outline:disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
+  transform: none;
+  background: transparent;
+}
+
+.btn-outline:disabled:hover {
+  background: transparent;
+}
+
 .link-arrow {
   display: inline-flex;
   align-items: center;
@@ -433,7 +456,10 @@ body.menu-open .nav-download {
   padding: 0 16px;
   border-radius: 12px;
   overflow: hidden;
-  transition: width 0.25s var(--ease), padding 0.25s var(--ease), border-radius 0.25s var(--ease),
+  transition:
+    width 0.25s var(--ease),
+    padding 0.25s var(--ease),
+    border-radius 0.25s var(--ease),
     background 0.2s;
 }
 
@@ -442,13 +468,16 @@ body.menu-open .nav-download {
   max-width: 100px;
   overflow: hidden;
   white-space: nowrap;
-  transition: max-width 0.25s var(--ease), opacity 0.18s;
+  transition:
+    max-width 0.25s var(--ease),
+    opacity 0.18s;
 }
 
 .site-header.is-scrolled .nav-download {
   width: 46px;
   height: 46px;
   padding: 0;
+  gap: 0;
   border-radius: 50%;
 }
 
@@ -651,7 +680,7 @@ body.menu-open .nav-download {
 
 .hero h1 {
   margin-top: 20px;
-  font-size: 60px;
+  font-size: 80px;
   line-height: 1.02;
   letter-spacing: -0.05em;
   animation: rise 0.75s var(--ease) 0.06s both;
@@ -734,8 +763,7 @@ body.menu-open .nav-download {
 .hero-demo {
   position: relative;
   width: 100%;
-  max-width: 570px;
-  margin-left: auto;
+  max-width: 870px;
   animation: shotIn 0.9s var(--ease) 0.16s both;
 }
 
@@ -833,7 +861,7 @@ body.menu-open .nav-download {
 
 .demo-body {
   position: relative;
-  min-height: 200px;
+  min-height: 280px;
   padding: 20px 20px 28px;
 }
 
@@ -995,7 +1023,9 @@ body.menu-open .nav-download {
   translate: -50% 0;
   opacity: 0;
   transform: translateY(5px) scale(0.96);
-  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+  transition:
+    opacity 0.22s var(--ease),
+    transform 0.22s var(--ease);
 }
 
 .hero-demo.is-hud-visible .demo-hud {
@@ -1177,11 +1207,10 @@ body.menu-open .nav-download {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 96px;
   background: var(--white);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 16px 0 18px;
+  padding: 18px 0;
   overflow: hidden;
 }
 
@@ -1433,8 +1462,6 @@ body.menu-open .nav-download {
   transform: translateY(-3px) scale(1.04);
 }
 
-
-
 /* ---------- screenshots ---------- */
 
 .shot-frame,
@@ -1527,7 +1554,7 @@ body.menu-open .nav-download {
 .menu-stage {
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  background: var(--bg);
+  background: var(--white);
   box-shadow: var(--shadow-md);
   overflow: hidden;
 }
@@ -1540,10 +1567,7 @@ body.menu-open .nav-download {
 .menu-stage-body {
   position: relative;
   padding: 38px 34px;
-  background-image:
-    linear-gradient(to right, rgba(20, 32, 42, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(20, 32, 42, 0.04) 1px, transparent 1px);
-  background-size: 34px 34px;
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .menu-image {
@@ -1553,15 +1577,11 @@ body.menu-open .nav-download {
   box-shadow: 0 22px 44px -26px rgba(20, 32, 42, 0.4);
 }
 
-
-
 /* ---------- shortcut ---------- */
 
 .shortcut-stage {
   position: relative;
 }
-
-
 
 /* ---------- themes ---------- */
 
@@ -1664,7 +1684,7 @@ body.menu-open .nav-download {
 
 .install {
   padding: 96px 0;
-  background: var(--bg);
+  background: var(--white);
 }
 
 .install-grid {
@@ -1716,84 +1736,6 @@ body.menu-open .nav-download {
   color: var(--muted);
 }
 
-.install-note {
-  margin-top: 24px;
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--bg-2);
-}
-
-.install-note h3 {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.install-note h3 svg {
-  color: var(--violet);
-}
-
-.install-note > p {
-  margin-top: 7px;
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--muted);
-}
-
-.code-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.code-row code {
-  flex: 1;
-  min-width: 0;
-  padding: 11px 12px;
-  border-radius: 8px;
-  background: var(--ink);
-  color: #f2ece3;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  line-height: 1.4;
-  white-space: nowrap;
-  overflow-x: auto;
-}
-
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-  min-height: 42px;
-  padding: 0 12px;
-  border: 1px solid var(--line-2);
-  border-radius: 8px;
-  background: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--ink-2);
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-}
-
-.copy-btn:hover {
-  border-color: var(--violet);
-  color: var(--violet);
-}
-
-.copy-btn.is-copied {
-  background: var(--violet);
-  border-color: var(--violet);
-  color: #fff;
-}
-
 .install-action {
   display: flex;
   flex-direction: column;
@@ -1819,7 +1761,7 @@ body.menu-open .nav-download {
 
 .faq {
   padding: 96px 0;
-  background: var(--white);
+  background: var(--bg);
 }
 
 .faq-head {
@@ -1923,7 +1865,7 @@ body.menu-open .nav-download {
 
 .cta-section {
   padding: 40px 0 72px;
-  background: var(--bg);
+  background: var(--white);
 }
 
 .cta-panel {
@@ -1976,6 +1918,8 @@ body.menu-open .nav-download {
 .cta-actions {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 28px;
 }
 
@@ -2007,7 +1951,7 @@ body.menu-open .nav-download {
 
 .site-footer {
   padding: 52px 0 24px;
-  background: var(--white);
+  background: var(--bg);
   border-top: 1px solid var(--line);
 }
 
@@ -2148,6 +2092,7 @@ body.menu-open .nav-download {
     width: 46px;
     height: 46px;
     padding: 0;
+    gap: 0;
     border-radius: 50%;
   }
 
@@ -2410,21 +2355,6 @@ body.menu-open .nav-download {
     gap: 34px;
   }
 
-  .code-row {
-    flex-direction: column;
-  }
-
-  .code-row code {
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
-    font-size: 10px;
-  }
-
-  .copy-btn {
-    min-height: 44px;
-    justify-content: center;
-  }
-
   .faq {
     padding: 60px 0;
   }
@@ -2490,6 +2420,7 @@ body.menu-open .nav-download {
   .nav-download {
     width: 44px;
     height: 44px;
+    gap: 0;
     border-radius: 50%;
   }
 

@@ -9,7 +9,6 @@ interface Props {
 const { lang } = Astro.props;
 const c = getCopy(lang);
 const s = c.install;
-const command = 'xattr -dr com.apple.quarantine /Applications/Hush.app';
 ---
 
 <section class="install" id="install">
@@ -30,18 +29,6 @@ const command = 'xattr -dr com.apple.quarantine /Applications/Hush.app';
           </li>
         ))}
       </ol>
-
-      <div class="install-note">
-        <h3><Icon name="shield" size={16} />{s.noteTitle}</h3>
-        <p>{s.note}</p>
-        <div class="code-row">
-          <code>{command}</code>
-          <button class="copy-btn" type="button" data-copy={command} data-copied={s.copied} aria-label={s.copy}>
-            <Icon name="copy" size={15} />
-            <span data-copy-label>{s.copy}</span>
-          </button>
-        </div>
-      </div>
 
       <div class="install-action">
         <a class="btn btn-primary" href={c.common.downloadUrl}>

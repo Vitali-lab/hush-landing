@@ -142,11 +142,6 @@ export const ru: Copy = {
       { title: 'Разреши Accessibility', body: 'Для глобального хоткея и вставки в другие приложения.' },
       { title: 'Скачай модель один раз', body: '632 МБ, дальше распознавание работает офлайн.' },
     ],
-    noteTitle: 'Первый запуск',
-    note:
-      'Hush подписан, но пока не нотаризован. Если macOS не пускает, нажми Hush → Открыть правой кнопкой мыши или выполни в Терминале:',
-    copy: 'Скопировать команду',
-    copied: 'Скопировано',
     requirements: 'macOS 14 или новее · Apple Silicon · сборок для Intel нет.',
     download: 'Скачать Hush',
     imageAlt: 'Экран настройки Hush с шагами для микрофона, Accessibility и речевой модели',
@@ -215,5 +210,7 @@ export const ru: Copy = {
     repo: 'https://github.com/Vitali-lab/hush',
     releases: 'https://github.com/Vitali-lab/hush/releases',
     issues: 'https://github.com/Vitali-lab/hush/issues',
+    windowsUrl: '',
+    windowsAvailable: false,
   },
 };

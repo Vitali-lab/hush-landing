@@ -140,11 +140,6 @@ export const en = {
       { title: 'Allow Accessibility', body: 'For the global shortcut and pasting into other apps.' },
       { title: 'Download the model once', body: '632 MB, then transcription runs offline.' },
     ],
-    noteTitle: 'First launch',
-    note:
-      'Hush is signed but not notarized yet. If macOS blocks it, right-click Hush → Open, or run this in Terminal:',
-    copy: 'Copy command',
-    copied: 'Copied',
     requirements: 'macOS 14 or newer · Apple Silicon · Intel builds are not provided.',
     download: 'Download Hush',
     imageAlt: 'Hush setup screen with microphone, accessibility and speech model steps',
@@ -213,6 +208,8 @@ export const en = {
     repo: 'https://github.com/Vitali-lab/hush',
     releases: 'https://github.com/Vitali-lab/hush/releases',
     issues: 'https://github.com/Vitali-lab/hush/issues',
+    windowsUrl: '',
+    windowsAvailable: false,
   },
 };
 
