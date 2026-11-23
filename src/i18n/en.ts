@@ -156,7 +156,7 @@ export const en = {
       steps: [
         { title: 'Download the ZIP', body: 'Get Hush-Windows-x64.zip from the latest release.' },
         { title: 'Extract it anywhere', body: 'The folder is portable. There is no installer.' },
-        { title: 'Run Hush.exe', body: 'Unsigned beta: SmartScreen → More info → Run anyway.' },
+        { title: 'Run Hush.exe', body: 'Unsigned beta: SmartScreen → More info → Run anyway. Allow the microphone if Windows asks.' },
         { title: 'Download the model once', body: 'Settings → Model · 574 MB. Then it works offline.' },
       ],
       requirements: 'Windows 11 x64 · AVX2 · unsigned beta',
